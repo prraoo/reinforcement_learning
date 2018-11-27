@@ -1,6 +1,8 @@
 import numpy as np
 from gridworld import GridWorld
 
+import pdb
+
 def print_policy(policy_matrix):
     '''Print the policy using specific symbol.
 
@@ -28,6 +30,7 @@ def get_return(state_list, gamma):
 
     @return get the Return
     '''
+    pdb.set_trace()
     counter = 0
     return_value = 0
     for visit in state_list:
@@ -42,6 +45,7 @@ def update_policy(episode_list, policy_matrix, state_action_matrix):
     @return the updated policy
     '''
     for visit in episode_list:
+        pdb.set_trace()
         observation = visit[0]
         col = observation[1] + (observation[0]*4)
         if(policy_matrix[observation[0], observation[1]] != -1):
@@ -93,7 +97,7 @@ def main():
         #Starting a new episode
         episode_list = list()
         #Reset and return the first observation and reward
-        observation = env.reset(exploring_starts=True)
+        observation = env.reset(exploring_starts=False)
         #action = np.random.choice(4, 1)
         #action = policy_matrix[observation[0], observation[1]]
         #episode_list.append((observation, action, reward))
@@ -113,6 +117,8 @@ def main():
             observation = new_observation
             if done: break
         #The episode is finished, now estimating the utilities
+
+        pdb.set_trace()
         counter = 0
         #Checkup to identify if it is the first visit to a state
         checkup_matrix = np.zeros((4,25))
