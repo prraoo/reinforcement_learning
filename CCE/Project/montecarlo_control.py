@@ -301,6 +301,10 @@ def main():
     plt.title("Recovered reward (FIXED)")
     #plt.show()
     
+    """
+    PART TO BE IGNORED Since its is just using Mathew code for verification
+    """
+    
     import irl.linear_irl as linear_irl
     import irl.mdp.gridworld as gridworld
 
